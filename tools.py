@@ -38,4 +38,25 @@ def predict(k : int, target_coordinates : list[int], data : np.array, labels : n
     votes = [setosa_votes, versicolor_votes, virginica_votes]
 
     return votes.index(max(votes))
+
+
+def shuffle_data(data : np.array, labels: np.array):
+    num_of_features = data.shape[1]
+    labels = np.reshape(labels, (labels.shape[0], 1))
     
+    concatenated = np.concatenate((data, labels), axis=1)
+    np.random.shuffle(concatenated)
+    
+    shuffled_data = concatenated[:, 0:num_of_features]
+    shuffled_labels = concatenated[:, -1]
+
+    shuffled_labels = np.ravel(shuffled_labels)
+
+    return (shuffled_data, shuffled_labels)
+
+# testing ground
+
+# features = np.array([[5.1, 3.5, 1.4, 0.2],
+#  [4.9, 3.,  1.4, 0.2],
+#  [4.7, 3.2, 1.3, 0.2]])
+# labels =  np.array([0, 1, 2])
