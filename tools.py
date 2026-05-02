@@ -21,19 +21,19 @@ def find_k_nearest_neighbours(k, target_coordinates : np.array, data : np.array,
     for i in range(data.shape[0]):
         flower_name = labels[i]
         curr_len = math.sqrt(sum((data[i] - target_coordinates) ** 2))
-        curr_neighbour = [coordinataes[i], curr_len, flower_name]
+        curr_neighbour = [data[i], curr_len, flower_name]
         
         nearest_neighbours = replace_farthest_neighbour(curr_neighbour, nearest_neighbours)
 
     return nearest_neighbours
 
 
-def classify(k : int, target_coordinates : list[int], data : np.array, labels : np.array):
+def predict(k : int, target_coordinates : list[int], data : np.array, labels : np.array):
     nearest_neighbours = find_k_nearest_neighbours(k, target_coordinates, data, labels)
     
-    setosa_votes = sum([1 for neighbour in nearest_neighbours if neighbour[2] == 0)
-    versicolor_votes = sum([1 for neighbour in nearest_neighbours if neighbour[2] == 1)
-    virginica_votes = sum([1 for neighbour in nearest_neighbours if neighbour[2] == 2)
+    setosa_votes = sum([1 for neighbour in nearest_neighbours if neighbour[2] == 0])
+    versicolor_votes = sum([1 for neighbour in nearest_neighbours if neighbour[2] == 1])
+    virginica_votes = sum([1 for neighbour in nearest_neighbours if neighbour[2] == 2])
 
     votes = [setosa_votes, versicolor_votes, virginica_votes]
 
