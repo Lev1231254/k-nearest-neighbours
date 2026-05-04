@@ -54,6 +54,13 @@ def shuffle_data(data : np.array, labels: np.array):
 
     return (shuffled_data, shuffled_labels)
 
+
+def intToGroup(num : int):
+    if num == 0: return 'setosa'
+    if num == 1: return 'versicolor'
+    if num == 2: return 'virginica'
+    return None
+
 # testing ground
 
 # features = np.array([[5.1, 3.5, 1.4, 0.2],
