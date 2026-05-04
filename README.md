@@ -1,12 +1,12 @@
 # k-nearest-neighbours
 Implementing KNN algorithm from scratch
 
-##Goals:
+## Goals:
 1. Implement KNN from scratch
 2. Add visualization
 3. Add algorithm for finding the best k
 
-##The graphs
+## The graphs
 
 Visualization of nearest neighbours
 <img width="595" height="876" alt="image" src="https://github.com/user-attachments/assets/9644bde5-baed-476d-87b4-fff39ade905f" />
